@@ -128,6 +128,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 113429035}
+  - component: {fileID: 113429036}
   m_Layer: 0
   m_Name: PopUpManager
   m_TagString: Untagged
@@ -150,6 +151,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &113429036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 113429034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 475296ea820ad2d4c85f8498d337b17a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PopUpCanvasPrefab: {fileID: 401032290781381109, guid: 598119c7ab481fa4eac07f4d462b7952, type: 3}
+  PopupPosition: {fileID: 113429035}
+  popupLifeTime: 4
 --- !u!1 &581689228
 GameObject:
   m_ObjectHideFlags: 0
@@ -271,6 +287,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1e1d576dd45c7840bfb2e02bc908f15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scripts:
+  - {fileID: 11400000, guid: f48d9d0bf87582d429f3193b66a0e49a, type: 2}
 --- !u!4 &936152422
 Transform:
   m_ObjectHideFlags: 0

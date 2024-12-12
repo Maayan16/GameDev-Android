@@ -4,5 +4,5 @@ using UnityEngine;
 public class PopupScriptable : ScriptableObject
 {
     public string title;
-    public string description;
+    [TextArea(3,10)] public string description;
 }

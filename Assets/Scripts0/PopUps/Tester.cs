@@ -1,16 +1,13 @@
+using NUnit.Framework;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class Tester : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public List<PopupScriptable> scripts = new List<PopupScriptable>();
     void Start()
     {
-        
+        PopUpManager.instance.StartPopupPopLifeCycle(scripts[0]);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
