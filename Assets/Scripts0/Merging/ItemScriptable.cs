@@ -4,6 +4,8 @@ using UnityEngine;
 public class ItemScriptable : ScriptableObject
 {
     public int itemID;
-    public Sprite sprite;
-
+    public string itemName;
+    public string description;
+    public GameObject prefab;
+    public ItemScriptable mergedItemScriptable;
 }
