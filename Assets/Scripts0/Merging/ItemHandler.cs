@@ -1,13 +1,19 @@
 using UnityEngine;
-using UnityEngine.UIElements;
+using System.Collections.Generic;
 
 public class ItemHandler : MonoBehaviour
 {
-    [SerializeField] static GameObject ParentPrefab;
+    [SerializeField] GameObject ParentPrefab;
+    [HideInInspector] public static bool merging = false;
 
-    public static void Merge(GameObject itemToMerge, GameObject item2ToMerge, GameObject item3ToMerge)
+    private void Awake()
     {
-        Item itemScript = itemToMerge.GetComponent<Item>();
+        Item.itemMerging += Merge;
+    }
+
+    public void Merge(List<GameObject> itemsToMerge)
+    {
+        Item itemScript = itemsToMerge[0].GetComponent<Item>();
         //do something if we reached the last merge of the item
         if (itemScript.mergedItem == null) { return; }
 
@@ -15,12 +21,14 @@ public class ItemHandler : MonoBehaviour
         Vector3 v3 = Vector3.zero;
         SpawnItem(itemScript.mergedItem, v3);
 
-        Destroy(itemToMerge);
-        Destroy(item2ToMerge);
-        Destroy(item3ToMerge);
+        foreach (GameObject item in itemsToMerge)
+        {
+            Destroy(item);
+            itemsToMerge.RemoveAt(0);
+        } 
     }
 
-    public static GameObject SpawnItem(ItemScriptable itemData, Vector3 position)
+    public GameObject SpawnItem(ItemScriptable itemData, Vector3 position)
     {
         var GO = Instantiate(ParentPrefab, position, Quaternion.identity);
         GO.GetComponent<Item>().SetItemData(itemData);
