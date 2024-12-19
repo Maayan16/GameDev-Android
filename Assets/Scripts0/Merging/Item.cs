@@ -34,7 +34,7 @@ public class Item : MonoBehaviour
             //final step - merge
             if (list.Count >= 2)
             {
-                MergeManager.Instance.Merge(list[0], list[1], list[2]);
+                ItemHandler.Merge(list[0], list[1], list[2]);
             }
         }
     }
