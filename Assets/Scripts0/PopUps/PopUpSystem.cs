@@ -2,7 +2,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using TMPro;
 
-public class PopUpManager : MonoBehaviour
+public class PopUpSystem : MonoBehaviour
 {
     [SerializeField] private GameObject PopUpCanvasPrefab;
     private TextMeshProUGUI title;
@@ -10,15 +10,8 @@ public class PopUpManager : MonoBehaviour
     [SerializeField] private Transform PopupPosition;
     [SerializeField] private int popupLifeTime;
     private GameObject popupCanvasGO; //GameObject
-    public static PopUpManager instance;
 
-    private void Awake()
-    {   
-        //singleton
-        if (instance == null) { instance = this; }
-        else { Destroy(this.gameObject); }
-    }
-
+    //who should call this?
     public async void StartPopupPopLifeCycle(PopupScriptable popup)
     {
         popupCanvasGO = Instantiate(PopUpCanvasPrefab, PopupPosition);

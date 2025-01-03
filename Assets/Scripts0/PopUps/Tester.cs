@@ -7,7 +7,7 @@ public class Tester : MonoBehaviour
     public List<PopupScriptable> scripts = new List<PopupScriptable>();
     void Start()
     {
-        PopUpManager.instance.StartPopupPopLifeCycle(scripts[0]);
+        PopUpSystem.instance.StartPopupPopLifeCycle(scripts[0]);
     }
 
 }
